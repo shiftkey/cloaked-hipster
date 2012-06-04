@@ -2,7 +2,7 @@
 
 namespace CloakedHipster.Tests
 {
-    public class StyleParserTests
+    public class CssParserTests
     {
         [Fact]
         public void Parse_WithEmptyValue_ReturnsEmptyResourcesSet()

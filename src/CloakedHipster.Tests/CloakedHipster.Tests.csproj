@@ -53,9 +53,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ConventionMapper.cs" />
     <Compile Include="CssParser.cs" />
-    <Compile Include="StyleParserTests.cs" />
+    <Compile Include="CssParserTests.cs" />
+    <Compile Include="CssProcessor.cs" />
+    <Compile Include="CssProcessorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
+    <Compile Include="StringTestHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
