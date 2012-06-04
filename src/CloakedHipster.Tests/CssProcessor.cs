@@ -8,9 +8,9 @@ namespace CloakedHipster.Tests
         const string setterTemplate = "    <Setter Property=\"{0}\" Value=\"{1}\"/>";
 
         readonly CssParser process;
-        readonly ConventionMapper mapper;
+        readonly BackgroundMapper mapper;
 
-        public CssProcessor(CssParser process, ConventionMapper mapper)
+        public CssProcessor(CssParser process, BackgroundMapper mapper)
         {
             this.process = process;
             this.mapper = mapper;
@@ -23,14 +23,17 @@ namespace CloakedHipster.Tests
 
             foreach (var style in styles)
             {
-                var setterBuilder = new StringBuilder();
-                foreach (var v in style.Attributes)
-                {
-                    var mappedKey = mapper.MapKey(v.Key);
-                    var mappedValue = mapper.MapValue(v.Value);
+                if (!mapper.IsMatch(style))
+                    continue;
 
-                    setterBuilder.AppendFormat(setterTemplate, mappedKey, mappedValue);
-                }
+                var setterBuilder = new StringBuilder();
+
+                var result = mapper.Process(style);
+
+                if (result == null)
+                    continue;
+
+                setterBuilder.AppendFormat(setterTemplate, result.Item1, result.Item2);
 
                 styleBuilder.AppendFormat(styleTemplate, style.Name, setterBuilder);
             }
