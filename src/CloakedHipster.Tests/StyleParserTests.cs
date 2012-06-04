@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Xunit;
+﻿using Xunit;
 
 namespace CloakedHipster.Tests
 {
@@ -9,21 +7,17 @@ namespace CloakedHipster.Tests
         [Fact]
         public void Parse_WithEmptyValue_ReturnsEmptyResourcesSet()
         {
-            var parser = new StyleParser();
+            var parser = new CssParser();
             var result = parser.Parse("");
             Assert.Empty(result);
         }
-    }
 
-    public class StyleParser
-    {
-        public IEnumerable<Resource> Parse(string css)
+        [Fact]
+        public void Parse_WithAClassAndNoContents_ReturnsOneItem()
         {
-            return Enumerable.Empty<Resource>();
+            var parser = new CssParser();
+            var result = parser.Parse("foo { }");
+            Assert.NotEmpty(result);
         }
-    }
-
-    public class Resource
-    {
     }
 }
