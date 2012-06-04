@@ -35,9 +35,8 @@ namespace CloakedHipster.Tests
                     var outputValue = string.Format("#FF{0}{1}{2}", first.AsHexValue(), second.AsHexValue(), third.AsHexValue());
                     return new Tuple<string, string>(BackgroundKey, outputValue);
                 }
-
-
             }
+
             styleClass.Attributes.TryGetValue("background", out value);
 
             if (hexRegex.IsMatch(value))
@@ -46,7 +45,7 @@ namespace CloakedHipster.Tests
                 return new Tuple<string, string>(BackgroundKey, outputValue);
             }
 
-            return null;
+            return new Tuple<string, string>(BackgroundKey, value.ToTitleCase());
         }
     }
 }
