@@ -5,7 +5,7 @@ namespace CloakedHipster.Tests
     public class CssProcessor
     {
         const string styleTemplate = "<Style x:Key=\"{0}\">{1}</Style>";
-        const string setterTemplate = "<Setter Property=\"{0}\" Value=\"{1}\"/>";
+        const string setterTemplate = "    <Setter Property=\"{0}\" Value=\"{1}\"/>";
 
         readonly CssParser process;
         readonly ConventionMapper mapper;
