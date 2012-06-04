@@ -49,9 +49,9 @@ namespace CloakedHipster.Tests
         [Fact]
         public void Process_BackgroundColorWithOpacity_MapsToARGBValue()
         {
-            var input = "titletext { background-color: rgba(255, 255, 255, 0.6);}";
+            var input = "titletext { background-color: rgba(255, 255, 255, 0.1);}";
             var expected = "<Style x:Key=\"titletext\">" +
-                           "    <Setter Property=\"Background\" Value=\"#FFFFFFFF\"/>" +
+                           "    <Setter Property=\"Background\" Value=\"#19FFFFFF\"/>" +
                            "</Style>";
 
             var processor = new CssProcessor(new CssParser(), new BackgroundMapper());

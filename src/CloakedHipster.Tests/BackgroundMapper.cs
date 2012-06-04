@@ -9,6 +9,7 @@ namespace CloakedHipster.Tests
         Regex hexRegex = new Regex("#[0-9a-fA-F]{6}");
         Regex rgbRegex = new Regex(@"(^rgb\((\d+),\s*(\d+),\s*(\d+)\)$)|(^rgba\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.\d+)*\)$)");
         Regex digitRegex = new Regex(@"[0-9]{1,3}");
+        Regex digitWithDecimalRegex = new Regex(@"[0-9]{1}\.[0-9]{1,}");
         string BackgroundKey = "Background";
 
         public bool IsMatch(CssParser.StyleClass styleClass)
@@ -30,10 +31,21 @@ namespace CloakedHipster.Tests
                     var second = numbers[1].Value;
                     var third = numbers[2].Value;
 
-                    // TODO: detect opacity values
+                    var opacityRegex = digitWithDecimalRegex.Match(value);
 
-                    var outputValue = string.Format("#FF{0}{1}{2}", first.AsHexValue(), second.AsHexValue(), third.AsHexValue());
-                    return new Tuple<string, string>(BackgroundKey, outputValue);
+                    if (opacityRegex.Success)
+                    {
+                        var opacity = opacityRegex.Value;
+                        var opacityHex = AsHexValue(opacity);
+
+                        var outputValue = string.Format("#{3}{0}{1}{2}", first.AsHexValue(), second.AsHexValue(), third.AsHexValue(), opacityHex);
+                        return new Tuple<string, string>(BackgroundKey, outputValue);
+                    }
+                    else
+                    {
+                        var outputValue = string.Format("#FF{0}{1}{2}", first.AsHexValue(), second.AsHexValue(), third.AsHexValue());
+                        return new Tuple<string, string>(BackgroundKey, outputValue);
+                    }
                 }
             }
 
@@ -46,6 +58,18 @@ namespace CloakedHipster.Tests
             }
 
             return new Tuple<string, string>(BackgroundKey, value.ToTitleCase());
+        }
+
+        private static string AsHexValue(string opacity, int length = 2)
+        {
+            var opacityValue = Convert.ToDouble(opacity);
+            var opacityIntValue = (int)(opacityValue * 256);
+            var opacityHex = Convert.ToString(opacityIntValue, 16);
+
+            if (opacityHex.Length == 1)
+                opacityHex = "0" + opacityHex;
+
+            return opacityHex;
         }
     }
 }
