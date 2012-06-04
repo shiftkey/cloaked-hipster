@@ -1,4 +1,4 @@
-cloaked-hipster
+﻿cloaked-hipster
 ===============
 
 ### The Rant
@@ -70,4 +70,4 @@ Secondly, XAML has its own idioms for doing inheritance and determining what con
 
 ### Are you mad?
 
-Quite possibly.
+Yes.
