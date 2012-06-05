@@ -9,6 +9,7 @@ namespace CloakedHipster.Tests
         {
             Assert.Equal("00", "0.0".MapDoubleToHexValue());
         }
+
         [Fact]
         public void MapDoubleToHexValue_WithOne_ReturnsTwoCharacters()
         {

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedHipster.Tests", "Clo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedHipster", "CloakedHipster\CloakedHipster.csproj", "{07F7D937-C429-4BB8-8534-F12D830D2F51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedHipster.ItemTemplate", "CloakedHipster.ItemTemplate\CloakedHipster.ItemTemplate.csproj", "{75B12067-A9A5-4ABE-9792-7102B4515C87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{3EC27233-65FB-4B34-BA63-5808C36700A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC27233-65FB-4B34-BA63-5808C36700A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EC27233-65FB-4B34-BA63-5808C36700A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
