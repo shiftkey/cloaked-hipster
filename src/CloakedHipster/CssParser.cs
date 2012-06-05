@@ -1,10 +1,9 @@
-﻿// adapted from https://gist.github.com/561823
+// adapted from https://gist.github.com/561823
 
-using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace CloakedHipster.Tests
+namespace CloakedHipster
 {
     public class CssParser
     {

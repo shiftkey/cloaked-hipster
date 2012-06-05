@@ -1,6 +1,6 @@
 using System;
 
-namespace CloakedHipster.Tests
+namespace CloakedHipster
 {
     public interface IMapper
     {

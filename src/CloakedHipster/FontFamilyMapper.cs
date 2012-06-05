@@ -1,4 +1,4 @@
-namespace CloakedHipster.Tests
+namespace CloakedHipster
 {
     public class FontFamilyMapper : SimpleMapper
     {

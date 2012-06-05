@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Threading;
 
-namespace CloakedHipster.Tests
+namespace CloakedHipster
 {
     public static class StringExtensions
     {

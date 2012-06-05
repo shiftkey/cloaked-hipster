@@ -1,6 +1,6 @@
 using System;
 
-namespace CloakedHipster.Tests
+namespace CloakedHipster
 {
     public abstract class SimpleMapper : IMapper
     {
