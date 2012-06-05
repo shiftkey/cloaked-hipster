@@ -36,7 +36,7 @@ namespace CloakedHipster
                     if (opacityRegex.Success)
                     {
                         var opacity = opacityRegex.Value;
-                        var opacityHex = AsHexValue(opacity);
+                        var opacityHex = opacity.MapDoubleToHexValue();
 
                         var outputValue = string.Format("#{3}{0}{1}{2}", first.AsHexValue(), second.AsHexValue(), third.AsHexValue(), opacityHex);
                         return new Tuple<string, string>(BackgroundKey, outputValue);
@@ -58,18 +58,6 @@ namespace CloakedHipster
             }
 
             return new Tuple<string, string>(BackgroundKey, value.ToTitleCase());
-        }
-
-        private static string AsHexValue(string opacity, int length = 2)
-        {
-            var opacityValue = Convert.ToDouble(opacity);
-            var opacityIntValue = (int)(opacityValue * 256);
-            var opacityHex = Convert.ToString(opacityIntValue, 16);
-
-            if (opacityHex.Length == 1)
-                opacityHex = "0" + opacityHex;
-
-            return opacityHex;
         }
     }
 }

@@ -20,5 +20,17 @@ namespace CloakedHipster
             }
             return string.Empty;
         }
+
+        public static string MapDoubleToHexValue(this string input)
+        {
+            var opacityValue = Convert.ToDouble(input);
+            var opacityIntValue = (int)(opacityValue * 256);
+            var opacityHex = Convert.ToString(opacityIntValue, 16);
+
+            if (opacityHex.Length == 1) // TODO: this should be more flexible
+                opacityHex = "0" + opacityHex;
+
+            return opacityHex;
+        }
     }
 }
