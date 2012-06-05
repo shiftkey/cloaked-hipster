@@ -12,12 +12,12 @@ namespace CloakedHipster
         Regex digitWithDecimalRegex = new Regex(@"[0-9]{1}\.[0-9]{1,}");
         string BackgroundKey = "Background";
 
-        public bool IsMatch(CssParser.StyleClass styleClass)
+        public bool IsMatch(StyleClass styleClass)
         {
             return styleClass.Attributes.Any(t => t.Key.StartsWith("background"));
         }
 
-        public Tuple<string, string> Process(CssParser.StyleClass styleClass)
+        public Tuple<string, string> Process(StyleClass styleClass)
         {
             string value;
             if (styleClass.Attributes.TryGetValue("background-color", out value))

@@ -13,12 +13,12 @@ namespace CloakedHipster
             this.property = property;
         }
 
-        public bool IsMatch(CssParser.StyleClass styleClass)
+        public bool IsMatch(StyleClass styleClass)
         {
             return styleClass.Attributes.ContainsKey(key);
         }
 
-        public Tuple<string, string> Process(CssParser.StyleClass styleClass)
+        public Tuple<string, string> Process(StyleClass styleClass)
         {
             string value;
             if (styleClass.Attributes.TryGetValue(key, out value))
