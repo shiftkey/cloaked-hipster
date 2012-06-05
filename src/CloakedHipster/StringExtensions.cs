@@ -11,6 +11,11 @@ namespace CloakedHipster
             return cultureInfo.TextInfo.ToTitleCase(s.ToLower());
         }
 
+        public static string StripPixelValue(this string s)
+        {
+            return s.Replace("px", "");
+        }
+
         public static string AsHexValue(this string s)
         {
             int result;
