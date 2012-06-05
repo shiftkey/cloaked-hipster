@@ -38,7 +38,7 @@ namespace CloakedHipster.Tests
                 {
                     sc.Attributes.Remove(key);
                 }
-                sc.Attributes.Add(key, a.Split(':')[1].Trim().ToLower());
+                sc.Attributes.Add(key, a.Split(':')[1].Trim());
             }
 
             return sc;

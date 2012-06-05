@@ -58,8 +58,11 @@
     <Compile Include="CssParserTests.cs" />
     <Compile Include="CssProcessor.cs" />
     <Compile Include="CssProcessorTests.cs" />
+    <Compile Include="FontFamilyMapper.cs" />
+    <Compile Include="FontSizeMapper.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleMapper.cs" />
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="StringTestHelpers.cs" />
   </ItemGroup>

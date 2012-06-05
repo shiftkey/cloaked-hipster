@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text;
 
 namespace CloakedHipster.Tests
@@ -8,12 +9,12 @@ namespace CloakedHipster.Tests
         const string setterTemplate = "    <Setter Property=\"{0}\" Value=\"{1}\"/>";
 
         readonly CssParser process;
-        readonly BackgroundMapper mapper;
+        readonly IEnumerable<IMapper> mappers;
 
-        public CssProcessor(CssParser process, BackgroundMapper mapper)
+        public CssProcessor(CssParser process, IEnumerable<IMapper> mappers)
         {
             this.process = process;
-            this.mapper = mapper;
+            this.mappers = mappers;
         }
 
         public string Process(string input)
@@ -23,17 +24,20 @@ namespace CloakedHipster.Tests
 
             foreach (var style in styles)
             {
-                if (!mapper.IsMatch(style))
-                    continue;
-
                 var setterBuilder = new StringBuilder();
 
-                var result = mapper.Process(style);
+                foreach (var mapper in mappers)
+                {
+                    if (!mapper.IsMatch(style))
+                        continue;
 
-                if (result == null)
-                    continue;
+                    var result = mapper.Process(style);
 
-                setterBuilder.AppendFormat(setterTemplate, result.Item1, result.Item2);
+                    if (result == null)
+                        continue;
+
+                    setterBuilder.AppendFormat(setterTemplate, result.Item1, result.Item2);
+                }
 
                 styleBuilder.AppendFormat(styleTemplate, style.Name, setterBuilder);
             }
