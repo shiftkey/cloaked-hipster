@@ -35,22 +35,27 @@ So this little sandbox is an experiment - using Twitter Bootstrap as a reference
 
 ### The implementation
 
-I think the best approach for this is to use T4 templates, so the code might look like 
+I think the best approach for this is to use T4 templates, and I've got a prototype which now works using T4:
 
-    <#@ template language=“C#” #>
+    <#@ template language="C#" #>
     <#@ output extension=".xaml" #>
-    <#@ assembly name="$(SolutionDir)\tools\CSSAML.dll" #>
-    
+    <#@ assembly name="$(SolutionDir)\CloakedHipster\bin\Debug\CloakedHipster.dll" #>
+
     <ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <#= CSSAML.Generate(CssContents) #>
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <#
+    var conventions = new CloakedHipster.Conventions();
+    conventions.Use("btn", "Button");
+    conventions.Use("text", "TextBlock");
+
+    Write(CloakedHipster.Transformer.Generate(CssContents, conventions)); #>
 
     </ResourceDictionary>
 
     <#+
-    string CssContents = “titletext { background: blue; font-size: 18; foreground: #4E87D4; font-family: Trebuchet MS;   margin: 40px 10px 10px 0; }”;
+    string CssContents = "titletext { background: blue; font-size: 18; foreground: #4E87D4; font-family: Trebuchet MS;   margin: 40px 10px 10px 0; }";
     #>
 
 And how would you use this?
@@ -64,10 +69,13 @@ And how would you use this?
 
 ### Notes:
 
-First off, we need a way to map CSS classes and the actual styles to XAML style elements - there's likely to be some things which are not applicable on each side - so how do we deal with those?
+The use of conventions to resolve styles needs to be thought through - it feels rushed at the moment.
 
-Secondly, XAML has its own idioms for doing inheritance and determining what controls are associated with each style. We need to have some conventions to infer (and override?) these patterns from arbitrary CSS files.
+Integrating with the build system to provide feedback about how styles cannot be transformed
+
+ - "style 'titletext' could not be processed as it doesn't have a control defined..."
+ - "style 'titletext' has an image which is not included in the project..."
 
 ### Are you mad?
 
-Yes.
+According to @tathamoddie, yes.
