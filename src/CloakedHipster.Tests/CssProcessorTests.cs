@@ -112,6 +112,20 @@ namespace CloakedHipster.Tests
             Assert.Equal(expected, output.IgnoreWhiteSpace());
         }
 
+
+        [Fact]
+        public void Process_MarginBottom_MapsCorrectly()
+        {
+            var input = "titletext {  margin-bottom: 10px; }";
+            var expected = "<Style x:Key=\"titletext\">" +
+                           "    <Setter Property=\"Margin\" Value=\"0,0,0,10\"/>" +
+                           "</Style>";
+
+            var output = subject.Process(input);
+
+            Assert.Equal(expected, output.IgnoreWhiteSpace());
+        }
+
         [Fact]
         public void Process_MarginLeftAndRight_MapsCorrectly()
         {

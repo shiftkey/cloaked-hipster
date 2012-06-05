@@ -30,12 +30,13 @@ namespace CloakedHipster
         {
             var opacityValue = Convert.ToDouble(input);
             var opacityIntValue = (int)(opacityValue * 256);
+            if (opacityIntValue > 255) opacityIntValue = 255;
             var opacityHex = Convert.ToString(opacityIntValue, 16);
 
             if (opacityHex.Length == 1) // TODO: this should be more flexible
                 opacityHex = "0" + opacityHex;
 
-            return opacityHex;
+            return opacityHex.ToUpper();
         }
     }
 }

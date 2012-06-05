@@ -33,9 +33,6 @@ namespace CloakedHipster
 
                     var result = mapper.Process(style);
 
-                    if (result == null)
-                        continue;
-
                     setterBuilder.AppendFormat(setterTemplate, result.Item1, result.Item2);
                 }
 
