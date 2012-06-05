@@ -33,9 +33,11 @@ namespace CloakedHipster
 
                     var result = mapper.Process(style);
 
+                    setterBuilder.AppendLine();
                     setterBuilder.AppendFormat(setterTemplate, result.Item1, result.Item2);
                 }
 
+                setterBuilder.AppendLine();
                 var type = conventions.GetTargetType(style.Name);
                 var targetType = "";
                 if (!string.IsNullOrWhiteSpace(type))
@@ -44,6 +46,7 @@ namespace CloakedHipster
                 }
 
                 styleBuilder.AppendFormat(styleTemplate, style.Name, setterBuilder, targetType);
+                styleBuilder.AppendLine();
             }
 
             return styleBuilder.ToString();

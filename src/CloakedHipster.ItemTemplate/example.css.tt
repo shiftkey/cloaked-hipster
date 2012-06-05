@@ -9,12 +9,12 @@ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 <#
 	var conventions = new CloakedHipster.Conventions();
 	conventions.Use("btn", "Button");
-	conventions.Use("txt", "TextBlock");
+	conventions.Use("text", "TextBlock");
 
 	Write(CloakedHipster.Transformer.Generate(CssContents, conventions)); #>
 
 </ResourceDictionary>
 
 <#+
-string CssContents = "titletext { background: blue; font-size: 18; foreground: #4E87D4; font-family: Trebuchet MS;   margin: 40px 10px 10px 0; }"; 
+string CssContents = "titletext { background: blue; font-size: 18; foreground: #4E87D4; font-family: Trebuchet MS;   margin: 40px 10px 10px 0; }";
 #>

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedHipster", "CloakedHi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloakedHipster.ItemTemplate", "CloakedHipster.ItemTemplate\CloakedHipster.ItemTemplate.csproj", "{75B12067-A9A5-4ABE-9792-7102B4515C87}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{855225D1-9F8F-4195-B99F-E3F4642E1848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWpfApplication", "SampleWpfApplication\SampleWpfApplication.csproj", "{7956302E-38FB-4B7C-B1A4-1A1BC31903DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +29,15 @@ Global
 		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75B12067-A9A5-4ABE-9792-7102B4515C87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7956302E-38FB-4B7C-B1A4-1A1BC31903DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7956302E-38FB-4B7C-B1A4-1A1BC31903DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7956302E-38FB-4B7C-B1A4-1A1BC31903DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7956302E-38FB-4B7C-B1A4-1A1BC31903DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7956302E-38FB-4B7C-B1A4-1A1BC31903DA} = {855225D1-9F8F-4195-B99F-E3F4642E1848}
 	EndGlobalSection
 EndGlobal

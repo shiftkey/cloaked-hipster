@@ -206,8 +206,6 @@ namespace CloakedHipster.Tests
             Assert.Equal(expected, output.IgnoreWhiteSpace());
         }
 
-
-
         [Fact]
         public void Process_WithConventionSpecified_IncludesTargetType()
         {
